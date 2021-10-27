@@ -82,6 +82,13 @@ public class UserController {
 	@DeleteMapping
 	void modifyUser(@RequestParam int id) {
 		int index = 0;
+		for(int i= 0 ; i<users.size();i++ ) {
+			if(users.get(i).getId()==id)
+				users.remove(i);
+			
+		}
+		
+		
 //		for(User us:users) {
 //			if(us.getId()==id) {
 //				System.out.println(index);
