@@ -5,11 +5,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -66,13 +69,28 @@ public class UserController {
 	@PutMapping
 	void modifyUser(@RequestBody User user) {
 		
-		
-		
-		
+		for(User us:users) {
+			if(us.getId()==user.getId()) {
+				us.setName(user.getName());
+				us.setAge(user.getAge());
+			}
+		}
 		
 	}
 	
 	//delete user
-	//@DeleteMapping
+	@DeleteMapping
+	void modifyUser(@RequestParam int id) {
+		int index = 0;
+//		for(User us:users) {
+//			if(us.getId()==id) {
+//				System.out.println(index);
+//				//users.remove(index);
+//				
+//			}
+//			index++;
+//		}
+		
+	}
 
 }
