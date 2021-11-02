@@ -67,13 +67,15 @@ public class UserController {
 	
 	//modify user
 	@PutMapping
-	void modifyUser(@RequestBody User user) {
+	int modifyUser(@RequestBody User user) {
+		
 		for(User us:users) {
 			if(us.getId()==user.getId()) {
 				us.setName(user.getName());
 				us.setAge(user.getAge());
 			}
 		}
+		return user.getId();
 	}
 	
 	//delete user
