@@ -68,36 +68,22 @@ public class UserController {
 	//modify user
 	@PutMapping
 	void modifyUser(@RequestBody User user) {
-		
 		for(User us:users) {
 			if(us.getId()==user.getId()) {
 				us.setName(user.getName());
 				us.setAge(user.getAge());
 			}
 		}
-		
 	}
 	
 	//delete user
 	@DeleteMapping
-	void modifyUser(@RequestParam int id) {
-		int index = 0;
+	void deleteUser(@RequestParam int id) {
 		for(int i= 0 ; i<users.size();i++ ) {
 			if(users.get(i).getId()==id)
 				users.remove(i);
 			
 		}
-		
-		
-//		for(User us:users) {
-//			if(us.getId()==id) {
-//				System.out.println(index);
-//				//users.remove(index);
-//				
-//			}
-//			index++;
-//		}
-		
 	}
 
 }
