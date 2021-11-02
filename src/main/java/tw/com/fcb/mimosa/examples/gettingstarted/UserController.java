@@ -78,12 +78,13 @@ public class UserController {
 	
 	//delete user
 	@DeleteMapping
-	void deleteUser(@RequestParam int id) {
+	int deleteUser(@RequestParam int id) {
 		for(int i= 0 ; i<users.size();i++ ) {
 			if(users.get(i).getId()==id)
-				users.remove(i);
-			
+				users.remove(i);			
 		}
+		
+		return id;
 	}
 
 }
