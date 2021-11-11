@@ -2,6 +2,7 @@ package tw.com.fcb.mimosa.examples.gettingstarted;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 
 @Mapper
 public interface UserDtoMapper {
@@ -9,11 +10,8 @@ public interface UserDtoMapper {
 	@Mapping(source = "name" , target = "userName")
 	UserDto from(User user);
 	
+	User createUser(CreateUserDto userReq);
 	
-	@Mapping(source = "name" , target = "userName")
-	UserDto to(UserRequest userReq);
-	
-	@Mapping(source = "userName" , target = "name")
-	User toRes(UserDto userdto);
+	void copyUser(ReplaceUserDto userReq , @MappingTarget User target);
 
 }

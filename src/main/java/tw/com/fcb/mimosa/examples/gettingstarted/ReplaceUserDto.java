@@ -1,5 +1,7 @@
 package tw.com.fcb.mimosa.examples.gettingstarted;
 
+import javax.validation.constraints.NotBlank;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,8 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Data
-public class UserRequest {	
+public class ReplaceUserDto {
+	@NotBlank
 	String name;
-	int age; 
 
 }
