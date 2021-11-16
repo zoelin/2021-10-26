@@ -1,6 +1,5 @@
 package tw.com.fcb.mimosa.examples.gettingstarted;
 
-import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,7 +16,7 @@ public class MyErrorTranslation implements TranslationService {
 
 	@Override
 	public Optional<Translated> translate(@NonNull Term term) {
-    return repository.findByCode(term.getCode()).map(Translated.class::cast);
+    return repository.findByCategoryAndCode(term.getCategory(), term.getCode());
 
 //		if (term.getCode().equals("ERR1")) {
 //
@@ -30,12 +29,12 @@ public class MyErrorTranslation implements TranslationService {
 	//20211109 homework DB select errorName
 
 
-	@Getter
-	@RequiredArgsConstructor
-	static class MyTranslation implements Translated {
-		final String category;
-		final String code;
-		final String translation;
-	}
+//	@Getter
+//	@RequiredArgsConstructor
+//	static class MyTranslation implements Translated {
+//		final String category;
+//		final String code;
+//		final String translation;
+//	}
 
 }
