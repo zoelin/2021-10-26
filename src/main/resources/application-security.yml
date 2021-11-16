@@ -1,11 +1,11 @@
 mimosa:
   security:
-    enabled: false
-    backend-auth-service.url: "http://${server.address:localhost}:${server.port:8080}/backend-auth"
+    enabled: true
+    backend-auth-service.url: "http://${server.address:localhost}:${server.port:8081}/backend-auth"
     strict: true
     ignoring:
       - path:
-          - "/**"
+#          - "/**"
           - "/v3/api-docs"
           - "/v3/api-docs/**"
           - "/swagger-ui"
